@@ -5,7 +5,7 @@ const cheerio = require('cheerio');
 const cors = require('cors');
 const app = express();
 
-
+//teste
 app.use(cors());
 
 const webpages = [

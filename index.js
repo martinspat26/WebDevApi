@@ -1,9 +1,13 @@
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 8888
 const express = require('express');
 const axios = require('axios');
 const cheerio = require('cheerio');
-
+const cors = require('cors');
 const app = express();
+
+
+app.use(cors());
+
 const webpages = [
     {
         name: 'eurogamer',
@@ -42,6 +46,15 @@ webpages.forEach(webpage => {
 })
 const articles = []
 
+//app.METHOD(PATH, HANDLER)
+/* app.get()  //get data
+
+app.post() //add
+
+app.put() //edit
+
+app.delete()  //delete
+ */
 
 app.get('/', (req, res) => {
     res.json('Welcome to my phasmophobia updates API. De forma a poder testar a API na sua totalidade, devera acrescentar os seguintes endpoints: Para ver todas as informaçoes das várias páginas web acerca de updates:/news Se quiser obter informação de websites especificos, deverá usar os seguintes endpoints:/news/eurogamer /news/steam /news/gamesradar ')

@@ -136,7 +136,7 @@ exports.create = (req, res) => {
     console.log(resposta);
     return res.send(resposta);
   };
-
+ 
 
 //api
 exports.news = async (req,res) => {

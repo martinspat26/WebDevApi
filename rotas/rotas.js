@@ -14,7 +14,7 @@ module.exports = app => {
 
 
     //para info de todos os updates
-    router.get('/news', controlador.news)
+    router.get('/news', controlador.authenticateToken, controlador.news)
 
 
     //router.get('/news/:webpageID', controlador.

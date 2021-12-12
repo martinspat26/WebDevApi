@@ -27,7 +27,7 @@ const webpages = [
 ]
 
 
-function authenticateToken(req, res, next) {
+exports.authenticateToken = (req, res, next)  => {
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
 
@@ -45,6 +45,7 @@ function authenticateToken(req, res, next) {
 
 
 const { response } = require("express");
+const { next } = require("cheerio/lib/api/traversing");
 
 
 
@@ -140,35 +141,27 @@ exports.create = (req, res) => {
 //api
 exports.news = async (req,res) => {
   
-  
-  try{
-    authenticateToken(req, res);
-  }catch(e){
-
-  }
-  
-  const articles = []
-  await Promise.all(webpages.map(async (webpage) => {
-    await axios.get(webpage.adress)
-    .then(reponse => {
-        const html = reponse.data
-        const $ = cheerio.load(html)
-       
-        $('a:contains("update")', html).each(function (){
-            const title = $(this).text().replace(/(\r\n|\n|\r|\"|\t)/gm, "");
-            const url = $(this).attr('href')
-            //console.log(title + webpage.base + url + webpage.name);
-            articles.push({
-                title,
-                url: webpage.base + url,
-                source: webpage.name
-            })
-        })
-    })
-  }))
+ 
+    const articles = []
+    await Promise.all(webpages.map(async (webpage) => {
+      await axios.get(webpage.adress)
+      .then(reponse => {
+          const html = reponse.data
+          const $ = cheerio.load(html)
+         
+          $('a:contains("update")', html).each(function (){
+              const title = $(this).text().replace(/(\r\n|\n|\r|\"|\t)/gm, "");
+              const url = $(this).attr('href')
+              //console.log(title + webpage.base + url + webpage.name);
+              articles.push({
+                  title,
+                  url: webpage.base + url,
+                  source: webpage.name
+              })
+          })
+      })
+    }))
     return res.send(articles);
-
-
 
  
 }

@@ -1,0 +1,28 @@
+
+GET http://localhost:8080/users
+
+###  //regista user
+
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+    "name": "kyle",
+    "password": "password"
+}
+
+### //dá accesstoken
+
+POST http://localhost:8080/users/login
+Content-Type: application/json
+
+{
+    "name": "kyle",
+    "password": "password"
+}
+
+
+
+### //testa token
+GET http://localhost:8080/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoia3lsZSIsImlhdCI6MTYzODQwMDQ2NX0.B_CDZYj_m36cZeGj3flFZyLXtA223TBUwqG5LTmYuRM

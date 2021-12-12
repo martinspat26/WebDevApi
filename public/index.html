@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <body style ="background-color:black;"></body>
+    <title>Phasmophobia latest-updates</title>
+    <link rel = "icon" href = "https://i.ytimg.com/vi/bhHdGkFsCtU/maxresdefault.jpg" type = "image/x-icon">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Phasmophobia Intro</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"  onclick="getNews('')">API</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <button
+            type="button"
+            class="btn btn-outline-success"
+            id="btnModalLogin"
+          >
+            Login
+          </button>
+      
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            id="btnModalRegistar"
+          >
+            Register
+          </button>
+      
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            id="btnLogoff"
+          >
+            Logout
+          </button>
+
+          </form>
+        </div>
+
+      </div>
+    </nav>
+
+    
+    <!--cabeçalho-->
+    <header>
+        <!-- imagem -->
+        <img src="images/phasmophobia-exposition-update.webp" alt = "phasmophobia" style = "width : 1800px;height:600px;" class="mx-auto d-block mt-5">
+        
+        <h1 style="margin-left: 40px">
+             <b style="color:white">Welcome do the Phasmophobia latest-updates API</b>
+        </h1>
+    </header>
+
+    <!--conteudo principal-->
+    <main>
+        <article id="content">
+            <h2></h2>
+            <p style="margin-left: 40px; color:white" >Phasmophobia is a 4 player online co-op psychological horror where you and your team members of paranormal
+                investigators will enter haunted locations filled with paranormal activity and gather as much evidence of the paranormal as you can. 
+                You will use your ghost hunting equipment to search for and record evidence of whatever ghost is haunting the location to sell onto a ghost removal team.</p>
+        
+            <p style="margin-left: 40px; color:white" >You can choose to support your team by monitoring the location with CCTV cameras and motion sensors from the safety of the truck or
+                head inside and get your hands dirty with the ghostly activity that will get increasingly hostile as time goes on.</p>
+            
+        
+                <ul>
+                    <p style="margin-left: 70px; color:white">-Immersive Experience: Realistic graphics and sounds as well as having minimal user interfaces will ensure a totally immersive experience 
+                that will keep you on your toes.</p>
+                    <p style="margin-left: 70px; color:white">-Cross platform: Phasmophobia supports all players whether they have VR or not so can enjoy the game with your VR and non VR friends.</p>
+                    <p style="margin-left: 70px; color:white">-Co-op multiplayer: Play alongside your friends with up to 4 players in this co-op horror where teamwork is key to your success.</p>
+                    <p style="margin-left: 70px; color:white">-Unique Ghosts: Over 10 different types of Ghosts all with unique traits meaning each investigation will be different.</p>
+                    <p style="margin-left: 70px; color:white">-Investigate: Use well known ghost hunting equipment such as EMF Readers, Spirit Boxes, Thermometers
+                and Night Vision Cameras to find clues and gather as much paranormal evidence as you can.</p>
+                    <p style="margin-left: 70px; color:white">-Full Voice Recognition: The Ghosts are listening! Use your actual voice to interact with the Ghosts through Ouija 
+                Boards and EVP Sessions using a Spirit Box.</p>
+                </ul>
+            <h3 style="margin-left: 40px; color:white"><b>For more information about the game and its latest updates, proceed to the website login, and if you dont have an account yet
+                go ahead and join the phasmophobia community by joining us.</b></h3>
+
+        </article>
+    </main>
+    <!--meter no bottom da página
+    <footer>
+        <p>Copyrights </p>
+    </footer>-->
+
+
+    <!-- Modal para registar novo utilizador -->
+    <!-- se retirar o data-bs-backdrop, o modal desaparece ao clicar no fundo da página -->
+    <div
+      class="modal fade"
+      id="modalRegistar"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              New User
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">E-Mail</label>
+              <input
+                type="email"
+                class="form-control"
+                id="usernameRegistar"
+                name="usernameRegistar"
+                placeholder="E-Mail"
+              />
+              <p id="emailErroLoginRegistar"></p>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="senhaRegistar"
+                name="senhaRegistar"
+                placeholder="Password"
+              />
+              <p id="statusRegistar"></p>
+            </div>
+            <div class="modal-footer d-block">
+              <button id="btnCancelaRegistar" class="btn btn-danger float-end" data-bs-dismiss="modal"
+               > 
+                Cancel
+              </button>
+              <button
+                class="btn btn-success float-end"
+                id="btnSubmitRegistar"
+                onclick="validaRegisto()"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para fazer login -->
+    <!-- se retirar o data-bs-backdrop, o modal desaparece ao clicar no fundo da página -->
+    <div
+      class="modal fade"
+      id="modalLogin"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Your details
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              id="btnLoginClose"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">E-Mail</label>
+              <input
+                type="email"
+                class="form-control"
+                id="usernameLogin"
+                name="usernameLogin"
+                placeholder="E-Mail"
+              />
+              <p id="emailErroLogin"></p>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="senhaLogin"
+                name="senhaLogin"
+                placeholder="Password"
+              />
+              <p id="passErroLogin"></p>
+              <p id="statusLogin"></p>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="rememberMe" />
+              <label class="form-check-label" for="rememberMe"
+                >Remember me</label
+              >
+            </div>
+            <div class="modal-footer d-block">
+              <p id='pRegistar' class="float-start">
+                Still no account <a href="#">Register</a>
+              </p>
+              <button class="btn btn-danger float-end" data-bs-dismiss="modal">
+                Cancel 
+              </button>
+              <button
+                class="btn btn-success float-end"
+                id="btnSubmitLogin"
+                onclick="validaLogin()"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/users.js"></script>
+  </body>
+</html>

@@ -1,4 +1,5 @@
-const urlBase = "http://localhost:8080/api";
+const getUrl = window.location;
+const urlBase =  getUrl .protocol + "//" + getUrl.host + "/api/";
 const modalLogin = document.getElementById("modalLogin");
 const bsModalLogin = new bootstrap.Modal(modalLogin, (backdrop = "static")); // Pode passar opções
 const modalRegistar = document.getElementById("modalRegistar");
